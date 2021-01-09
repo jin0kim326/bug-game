@@ -1,0 +1,86 @@
+:root {
+  /* border line */
+  --solid-border: 5px solid black;
+  --radius-border: 10px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: url("img/background.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  margin: 0;
+}
+
+button {
+  outline: none;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.board {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.start-btn {
+  font-size: 40px;
+  background-color: beige;
+  padding: 20px;
+  border-radius: var(--radius-border);
+  border: var(--solid-border);
+}
+
+.timer {
+  width: 200px;
+  height: 70px;
+  background-color: white;
+  margin-top: 10px;
+  border: var(--solid-border);
+  border-radius: var(--radius-border);
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.timer span {
+  font-size: 40px;
+  font-weight: 600;
+}
+
+.counter {
+  margin: auto;
+  margin-top: 10px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: orange;
+  font-size: 60px;
+  border: 2px solid black;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.field {
+  background-color: transparent;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 48vh;
+}
