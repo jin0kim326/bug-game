@@ -1,5 +1,7 @@
 const startBtn = document.querySelector(".start-btn");
 const timer = document.querySelector(".timer");
+const field = document.querySelector(".field");
+const counter = document.querySelector(".counter");
 
 /* 
 타이머 만들기
@@ -12,7 +14,13 @@ const timer = document.querySelector(".timer");
 startBtn.addEventListener("click", () => {
   startTimer();
   onAddImages();
+  onCounter();
 });
+
+function onCounter(decreaseCount) {
+  const setCount = 10;
+  counter.innerHTML = setCount;
+}
 
 function startTimer() {
   let timeleft = 10;
@@ -28,13 +36,33 @@ function startTimer() {
 }
 
 function createImage(type) {
-  const field = document.querySelector(".field");
   const fieldRect = field.getBoundingClientRect();
   const maxX = fieldRect.width - 92;
   const maxY = fieldRect.height - 86;
 
   const item = document.createElement("li");
   item.setAttribute("class", "item");
+  item.addEventListener("click", (event) => {
+    const target = event.target;
+    const type = target.dataset.type;
+
+    if (type == "bug") {
+      //gameover
+      console.log("gameover");
+      return;
+    }
+
+    if (type == "carrot") {
+      field.removeChild(item);
+      decreaseCounter();
+    }
+  });
+
+  function decreaseCounter() {
+    let count = document.querySelector(".counter").innerHTML;
+    count -= 1;
+    counter.innerHTML = count;
+  }
 
   const btn = document.createElement("button");
   btn.setAttribute("class", type);
@@ -47,14 +75,13 @@ function createImage(type) {
   item.style.top = `${maxY * Math.random()}px`;
   item.style.left = `${maxX * Math.random()}px`;
 
-  btn.innerHTML = `<img src="img/${type}.png" alt="carrot" />`;
+  btn.innerHTML = `<img src="img/${type}.png" alt="${type}" data-type="${type}"/>`;
 
   item.appendChild(btn);
   return item;
 }
 
 function createImages() {
-  const field = document.querySelector(".field");
   const carrot = createImage("carrot");
   field.appendChild(carrot);
 
