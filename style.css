@@ -48,6 +48,11 @@ li {
   padding: 20px;
   border-radius: var(--radius-border);
   border: var(--solid-border);
+  transition: all 300ms ease-in;
+}
+
+.start-btn:hover {
+  transform: scale(1.1);
 }
 
 .timer {
@@ -95,4 +100,9 @@ li {
 
 .item {
   position: absolute;
+  transition: all 300ms ease-in;
+}
+
+.item:hover {
+  transform: scale(1.1);
 }

@@ -27,41 +27,7 @@ function startTimer() {
   }, 500);
 }
 
-// function createImages(type) {
-//   const field = document.querySelector(".field");
-//   const fieldRect = field.getBoundingClientRect();
-//   const maxX = fieldRect.width - 92;
-//   const maxY = fieldRect.height - 86;
-
-//   const item = document.createElement("li");
-//   item.setAttribute("class", "item");
-
-//   const carrot = document.createElement("button");
-//   carrot.setAttribute("class", "carrot");
-//   carrot.style.transform = `translate(${maxX * Math.random()}px, ${
-//     maxY * Math.random()
-//   }px)`;
-
-//   const image = document.createElement("img");
-//   image.setAttribute("src", "img/carrot.png");
-
-//   carrot.appendChild(image);
-//   item.appendChild(carrot);
-//   console.log(`${maxX}, ${maxY}`);
-//   return item;
-
-//   // item.innerHTML = `
-//   // <button class="carrot">
-//   //   <img src="img/carrot.png" alt="carrot" />
-//   // </button>
-
-//   // <button class="bug">
-//   //   <img src="img/bug.png" alt="bug" />
-//   // </button>
-//   // `;
-// }
-
-function createImages(type) {
+function createImage(type) {
   const field = document.querySelector(".field");
   const fieldRect = field.getBoundingClientRect();
   const maxX = fieldRect.width - 92;
@@ -72,9 +38,14 @@ function createImages(type) {
 
   const btn = document.createElement("button");
   btn.setAttribute("class", type);
-  btn.style.transform = `translate(${maxX * Math.random()}px, ${
-    maxY * Math.random()
-  }px)`;
+  // btn.style.transform = `translate(${maxX * Math.random()}px, ${
+  //   maxY * Math.random()
+  // }px)`;
+
+  // item.style.top = `"${maxX * Math.random()}px"`;
+  // item.style.left = `"${maxY * Math.random()}px"`;
+  item.style.top = `${maxY * Math.random()}px`;
+  item.style.left = `${maxX * Math.random()}px`;
 
   btn.innerHTML = `<img src="img/${type}.png" alt="carrot" />`;
 
@@ -82,16 +53,19 @@ function createImages(type) {
   return item;
 }
 
-function onAddImages() {
+function createImages() {
   const field = document.querySelector(".field");
+  const carrot = createImage("carrot");
+  field.appendChild(carrot);
 
+  const bug = createImage("bug");
+  field.appendChild(bug);
+}
+
+function onAddImages() {
   let n = 0;
   while (n < 10) {
-    const carrot = createImages("carrot");
-    field.appendChild(carrot);
-
-    const bug = createImages("bug");
-    field.appendChild(bug);
+    createImages();
     n++;
   }
 }
