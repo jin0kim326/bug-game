@@ -22,6 +22,14 @@ button {
   background-color: transparent;
   cursor: pointer;
 }
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
 
 .container {
   display: flex;
@@ -54,11 +62,11 @@ button {
   align-items: center;
   flex-direction: column;
   justify-content: center;
+  font-size: 40px;
+  font-weight: 600;
 }
 
 .timer span {
-  font-size: 40px;
-  font-weight: 600;
 }
 
 .counter {
@@ -83,4 +91,8 @@ button {
   bottom: 0;
   width: 100%;
   height: 48vh;
+}
+
+.item {
+  position: absolute;
 }
