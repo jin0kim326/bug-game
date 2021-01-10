@@ -1,13 +1,41 @@
-const field = document.querySelector(".field");
-const fieldRect = field.getBoundingClientRect();
-
-const startBtn = document.querySelector(".start-btn");
-const timer = document.querySelector(".timer");
-const counter = document.querySelector(".counter");
+"use strict";
 
 const CARROT_SIZE = 80;
 const CARROT_COUNT = 10;
 const BUG_COUNT = 10;
+
+const field = document.querySelector(".field");
+const fieldRect = field.getBoundingClientRect();
+const gameBtn = document.querySelector(".game-btn");
+const timer = document.querySelector(".timer");
+const counter = document.querySelector(".counter");
+
+let started = false;
+let score = 0;
+let timer = undefined;
+
+gameBtn.addEventListener("click", () => {
+  if (started) {
+    stopGame();
+  } else {
+    startGame();
+  }
+  started = !started;
+});
+
+function startGame() {
+  initGame();
+  showStopButton();
+}
+
+function stopGame() {}
+
+function showStopButton() {
+  const icon = gameBtn.querySelector("fa-play");
+  icon.classList.remove("fa-play");
+  icon.classList.add("fa-stop");
+}
+
 function initGame() {
   //벌레,당근 생성 후 field에 추가
   addItem("carrot", CARROT_COUNT, "img/carrot.png");

@@ -9,6 +9,9 @@
 }
 
 body {
+  margin: 0;
+}
+.game {
   background: url("img/background.png");
   background-position: center;
   background-size: cover;
@@ -43,7 +46,7 @@ li {
   margin-top: 50px;
 }
 
-.start-btn {
+.game-btn {
   font-size: 40px;
   background-color: darksalmon;
   padding: 20px;
@@ -52,7 +55,7 @@ li {
   transition: all 300ms ease-in;
 }
 
-.start-btn:hover {
+.game-btn:hover {
   transform: scale(1.1);
 }
 

@@ -12,36 +12,21 @@
     ></script>
   </head>
   <body>
-    <audio src="sound/bg.mp3" class="bg-bgm"></audio>
-    <div class="container">
-      <section class="board">
-        <button class="start-btn">
+    <section class="game">
+      <header class="game__header">
+        <button class="game__button">
           <i class="fas fa-play"></i>
         </button>
-        <div class="timer">
-          <span>00:00</span>
-        </div>
-        <div class="counter">
-          <span>0</span>
-        </div>
-      </section>
-      <ul class="field">
-        <!-- <li class="item">
-          <button class="carrot">
-            <img src="img/carrot.png" alt="" />
-          </button>
-
-          <button class="bug">
-            <img src="img/bug.png" alt="" />
-          </button>
-        </li> -->
-        <div class="gameover">
-          <button class="restart-btn">
-            <i class="fas fa-redo-alt"></i>
-          </button>
-          <h1 class="gameover__comment"></h1>
-        </div>
-      </ul>
-    </div>
+        <span class="game__timer">0:0</span>
+        <span class="game__score">0</span>
+      </header>
+      <section class="game__field"></section>
+    </section>
+    <section class="pop-up">
+      <button class="pop-up__refresh">
+        <i class="fas fa-redo"></i>
+      </button>
+      <span class="pop-up__message"></span>
+    </section>
   </body>
 </html>
