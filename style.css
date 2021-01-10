@@ -10,6 +10,7 @@
 
 body {
   background: url("img/background.png");
+  background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   height: 100vh;
@@ -44,7 +45,7 @@ li {
 
 .start-btn {
   font-size: 40px;
-  background-color: beige;
+  background-color: darksalmon;
   padding: 20px;
   border-radius: var(--radius-border);
   border: var(--solid-border);
@@ -105,4 +106,43 @@ li {
 
 .item:hover {
   transform: scale(1.1);
+}
+
+.field:last-child {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gameover {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 50%;
+  height: 50%;
+  border-radius: 50px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  z-index: 1;
+  display: none;
+}
+
+.restart-btn {
+  font-size: 40px;
+  background-color: darksalmon;
+  width: 80px;
+  height: 80px;
+  border-radius: var(--radius-border);
+  border: var(--solid-border);
+  transition: all 300ms ease-in;
+}
+
+.restart-btn:hover {
+  transform: scale(1.1);
+}
+
+.gameover.active {
+  display: flex;
 }
