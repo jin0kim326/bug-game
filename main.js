@@ -4,11 +4,11 @@ const CARROT_SIZE = 80;
 const CARROT_COUNT = 10;
 const BUG_COUNT = 10;
 
-const field = document.querySelector(".field");
+const field = document.querySelector(".game__field");
 const fieldRect = field.getBoundingClientRect();
-const gameBtn = document.querySelector(".game-btn");
-const timer = document.querySelector(".timer");
-const counter = document.querySelector(".counter");
+const gameBtn = document.querySelector(".game__button");
+const gameTimer = document.querySelector(".game__timer");
+const gameScore = document.querySelector(".game__score");
 
 let started = false;
 let score = 0;
@@ -31,13 +31,14 @@ function startGame() {
 function stopGame() {}
 
 function showStopButton() {
-  const icon = gameBtn.querySelector("fa-play");
-  icon.classList.remove("fa-play");
+  const icon = gameBtn.querySelector(".fa-play");
   icon.classList.add("fa-stop");
+  icon.classList.remove("fa-play");
 }
 
 function initGame() {
   //벌레,당근 생성 후 field에 추가
+  field.innerHTML = "";
   addItem("carrot", CARROT_COUNT, "img/carrot.png");
   addItem("bug", BUG_COUNT, "img/bug.png");
 }
@@ -50,12 +51,12 @@ function addItem(className, count, imgPath) {
     item.setAttribute("class", className);
     item.setAttribute("src", imgPath);
     item.style.position = "absolute";
+
     item.style.top = `${maxY * Math.random()}px`;
     item.style.left = `${maxX * Math.random()}px`;
     field.appendChild(item);
   }
 }
-initGame();
 
 // ----------------------------------------------
 // startBtn.addEventListener("click", () => {
