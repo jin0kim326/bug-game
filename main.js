@@ -18,40 +18,98 @@ let started = false;
 let score = 0;
 let timer = undefined;
 
-gameBtn.addEventListener("click", () => {
-  if (started) {
-    stopGame();
-  } else {
-    startGame();
-  }
-  started = !started;
-});
+const bgSound = new Audio("/sound/bg.mp3");
+const carrotSound = new Audio("/sound/carrot_pull.mp3");
+const bugSound = new Audio("/sound/bug_pull.mp3");
+const winSound = new Audio("/sound/game_win.mp3");
+const alertSound = new Audio("/sound/alert.wav");
 
 function startGame() {
+  started = true;
+  soundPlay(bgSound);
   initGame();
+  showGameButton();
   showStopButton();
   showTimerAndScore();
   startGameTimer();
 }
 
 function stopGame() {
+  started = false;
+  soundStop(bgSound);
+  soundPlay(alertSound);
   stopGameTimer();
   hideGameButton();
   showPopUpWithText("REPLAY ?");
 }
+
+function finishGame(win) {
+  started = false;
+  soundStop(bgSound);
+  stopGameTimer();
+  hideGameButton();
+  if (win) {
+    soundPlay(winSound);
+  } else {
+    soundPlay(bugSound);
+  }
+  showPopUpWithText(win ? "You Win!!" : "You Lost...T_T");
+}
+
+field.addEventListener("click", onFieldClick);
+
+function onFieldClick(event) {
+  if (!started) {
+    return;
+  }
+  const target = event.target;
+  if (target.matches(".carrot")) {
+    // 당근클릭
+    target.remove();
+    score++;
+    soundPlay(carrotSound);
+    updateScoreBoard();
+    if (score === CARROT_COUNT) {
+      finishGame(true);
+    }
+  } else if (target.matches(".bug")) {
+    soundPlay(bugSound);
+    finishGame(false);
+  }
+}
+gameBtn.addEventListener("click", () => {
+  if (started) {
+    stopGame();
+  } else {
+    startGame();
+  }
+});
+
+popUpRefresh.addEventListener("click", () => {
+  startGame();
+  hidePopUp();
+});
 
 function showPopUpWithText(text) {
   popUp.classList.remove("pop-up--hide");
   popUpMessage.innerText = text;
 }
 
+function hidePopUp() {
+  popUp.classList.add("pop-up--hide");
+}
+
 function showStopButton() {
-  const icon = gameBtn.querySelector(".fa-play");
+  const icon = gameBtn.querySelector(".fas");
   icon.classList.add("fa-stop");
   icon.classList.remove("fa-play");
 }
 
 function hideGameButton() {
+  gameBtn.style.visibility = "hidden";
+}
+
+function showGameButton() {
   gameBtn.style.visibility = "visible";
 }
 
@@ -60,12 +118,16 @@ function showTimerAndScore() {
   gameScore.style.visibility = "visible";
 }
 
+function updateScoreBoard() {
+  gameScore.innerText = CARROT_COUNT - score;
+}
 function startGameTimer() {
   let remainingTimeSec = GAME_DURATION_SEC;
   updateTimerText(remainingTimeSec);
   timer = setInterval(() => {
     if (remainingTimeSec <= 0) {
       clearInterval(timer);
+      finishGame(CARROT_COUNT === score);
       return;
     }
     updateTimerText(--remainingTimeSec);
@@ -84,6 +146,7 @@ function updateTimerText(time) {
 
 function initGame() {
   //벌레,당근 생성 후 field에 추가
+  score = 0;
   field.innerHTML = "";
   gameScore.innerText = CARROT_COUNT;
   addItem("carrot", CARROT_COUNT, "img/carrot.png");
@@ -106,6 +169,15 @@ function addItem(className, count, imgPath) {
     item.style.top = `${maxY * Math.random() - 40}px`;
     field.appendChild(item);
   }
+}
+
+function soundPlay(sound) {
+  sound.currentTime = 0;
+  sound.play();
+}
+
+function soundStop(sound) {
+  sound.pause();
 }
 
 // ----------------------------------------------

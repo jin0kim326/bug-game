@@ -87,10 +87,6 @@ li {
   visibility: visible;
 }
 
-.game__button--hide {
-  visibility: hidden;
-}
-
 .game__button:hover {
   transform: scale(1.1);
 }
@@ -124,6 +120,14 @@ li {
   height: 100%;
   margin-top: 40px;
   position: relative;
+}
+
+.game__field img {
+  transition: all var(--anim-duration) ease-in;
+}
+
+.game__field img:hover {
+  transform: scale(1.1);
 }
 
 .pop-up {
