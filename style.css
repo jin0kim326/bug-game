@@ -98,6 +98,7 @@ li {
   font-size: var(--size-icon-timer);
   margin-top: var(--base-margin);
   border-radius: var(--border-radius);
+  visibility: hidden;
 }
 
 .game__score {
@@ -110,6 +111,7 @@ li {
   font-size: var(--size-font-score);
   margin-top: var(--base-margin);
   border: var(--border-score);
+  visibility: hidden;
 }
 
 .game__field {
