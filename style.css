@@ -11,11 +11,11 @@
   --size-timer-width: 100px;
   --size-popup-width: 400px;
   --size-popup-height: 140px;
-  --size-score: 55px;
+  --size-score: 50px;
   --size-icon-gamebtn: 24px;
   --size-icon-refesh: 24px;
   --size-icon-timer: 32px;
-  --size-font-score: 46px;
+  --size-font-score: 38px;
   --size-font-popup-msg: 38px;
 
   /* color */
@@ -99,6 +99,8 @@ li {
   font-size: var(--size-icon-timer);
   margin-top: var(--base-margin);
   border-radius: var(--border-radius);
+  user-select: none;
+  cursor: auto;
   visibility: hidden;
 }
 
@@ -112,6 +114,9 @@ li {
   font-size: var(--size-font-score);
   margin-top: var(--base-margin);
   border: var(--border-score);
+
+  user-select: none;
+  cursor: auto;
   visibility: hidden;
 }
 
@@ -122,11 +127,13 @@ li {
   position: relative;
 }
 
-.game__field img {
-  transition: all var(--anim-duration) ease-in;
+.carrot,
+.bug {
+  transition: all calc(var(--anim-duration) / 3) ease-in;
 }
 
-.game__field img:hover {
+.carrot:hover,
+.bug:hover {
   transform: scale(1.1);
 }
 

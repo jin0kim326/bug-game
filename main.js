@@ -28,7 +28,6 @@ function startGame() {
   started = true;
   soundPlay(bgSound);
   initGame();
-  showGameButton();
   showStopButton();
   showTimerAndScore();
   startGameTimer();
@@ -103,14 +102,11 @@ function showStopButton() {
   const icon = gameBtn.querySelector(".fas");
   icon.classList.add("fa-stop");
   icon.classList.remove("fa-play");
+  gameBtn.style.visibility = "visible";
 }
 
 function hideGameButton() {
   gameBtn.style.visibility = "hidden";
-}
-
-function showGameButton() {
-  gameBtn.style.visibility = "visible";
 }
 
 function showTimerAndScore() {
