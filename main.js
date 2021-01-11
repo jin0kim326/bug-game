@@ -10,6 +10,9 @@ const fieldRect = field.getBoundingClientRect();
 const gameBtn = document.querySelector(".game__button");
 const gameTimer = document.querySelector(".game__timer");
 const gameScore = document.querySelector(".game__score");
+const popUp = document.querySelector(".pop-up");
+const popUpMessage = document.querySelector(".pop-up__message");
+const popUpRefresh = document.querySelector(".pop-up__refresh");
 
 let started = false;
 let score = 0;
@@ -31,12 +34,25 @@ function startGame() {
   startGameTimer();
 }
 
-function stopGame() {}
+function stopGame() {
+  stopGameTimer();
+  hideGameButton();
+  showPopUpWithText("REPLAY ?");
+}
+
+function showPopUpWithText(text) {
+  popUp.classList.remove("pop-up--hide");
+  popUpMessage.innerText = text;
+}
 
 function showStopButton() {
   const icon = gameBtn.querySelector(".fa-play");
   icon.classList.add("fa-stop");
   icon.classList.remove("fa-play");
+}
+
+function hideGameButton() {
+  gameBtn.style.visibility = "visible";
 }
 
 function showTimerAndScore() {
@@ -54,6 +70,10 @@ function startGameTimer() {
     }
     updateTimerText(--remainingTimeSec);
   }, 1000);
+}
+
+function stopGameTimer() {
+  clearInterval(timer);
 }
 
 function updateTimerText(time) {
@@ -79,8 +99,11 @@ function addItem(className, count, imgPath) {
     item.setAttribute("src", imgPath);
     item.style.position = "absolute";
 
-    item.style.top = `${maxY * Math.random()}px`;
+    // console.log(`${maxY}px, ${maxX}px`);
+    // console.log(fieldRect.height);
+
     item.style.left = `${maxX * Math.random()}px`;
+    item.style.top = `${maxY * Math.random() - 40}px`;
     field.appendChild(item);
   }
 }

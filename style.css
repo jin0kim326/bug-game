@@ -84,6 +84,11 @@ li {
   border: var(--border-gamebtn);
   font-size: var(--size-icon-gamebtn);
   transition: all var(--anim-duration) ease-in;
+  visibility: visible;
+}
+
+.game__button--hide {
+  visibility: hidden;
 }
 
 .game__button:hover {
