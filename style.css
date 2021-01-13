@@ -130,6 +130,7 @@ li {
 .carrot,
 .bug {
   transition: all calc(var(--anim-duration) / 3) ease-in;
+  user-select: none;
 }
 
 .carrot:hover,
