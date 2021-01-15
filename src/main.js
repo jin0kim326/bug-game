@@ -2,13 +2,15 @@
 import PopUp from "./popup.js";
 import Field from "./field.js";
 import * as sound from "./sound.js";
-import Game from "./game.js";
+import GameBuilder from "./game.js";
 
-const CARROT_COUNT = 10;
-const BUG_COUNT = 10;
-const GAME_DURATION_SEC = 10;
+const gameFinishBanner = new PopUp();
+const game = new GameBuilder()
+  .withGameDuration(10)
+  .withCarrotCount(10)
+  .withBugCount(10)
+  .build();
 
-const game = new Game(10, 10, 10);
 game.setGameStopListener((reason) => {
   let message;
 
@@ -28,7 +30,6 @@ game.setGameStopListener((reason) => {
   gameFinishBanner.showWithText(message);
 });
 
-const gameFinishBanner = new PopUp();
 gameFinishBanner.setClickListener(() => {
   game.start();
 });
