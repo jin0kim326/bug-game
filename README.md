@@ -4,7 +4,7 @@
 
 해당프로젝트는 개인공부를 위해 만들어졌으며 간단한 html,css를 통해 보이는 부분을 작성하고 그 외 기능적인 요소는 모두 순수 vanila javascript로 만들었습니다.
 
-[![Watch the video](https://i.imgur.com/vKb2F1B.png)](https://youtu.be/yRTNg0NkKh8)
+[![시연](https://i9.ytimg.com/vi/yRTNg0NkKh8/mq1.jpg?sqp=CODvj4AG&rs=AOn4CLDl0tk_0uNBoWHptMgTQy1VfX7jvQ)](https://youtu.be/yRTNg0NkKh8)
 
 
 
