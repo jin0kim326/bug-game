@@ -7,6 +7,8 @@
 - 시연동영상 (아래영상을 클릭하시면 유투브로 이동합니다) </br>
 [![시연](https://i9.ytimg.com/vi/yRTNg0NkKh8/mq1.jpg?sqp=CODvj4AG&rs=AOn4CLDl0tk_0uNBoWHptMgTQy1VfX7jvQ)](https://youtu.be/yRTNg0NkKh8)
 
+#### [🕹 게임하러가기](https://jin0kim326.github.io/bug-game/)
+
 
 
 #### 프로젝트 개요
