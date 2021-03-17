@@ -4,8 +4,10 @@
 
 해당프로젝트는 개인공부를 위해 만들어졌으며 간단한 html,css를 통해 보이는 부분을 작성하고 그 외 기능적인 요소는 모두 순수 vanila javascript로 만들었습니다.
 
-- 시연동영상 (아래영상을 클릭하시면 유투브로 이동합니다) </br>
+- 시연동영상 (아래영상을 클릭하시면 유튜브로 이동합니다) </br>
 [![시연](https://i9.ytimg.com/vi/yRTNg0NkKh8/mq1.jpg?sqp=CODvj4AG&rs=AOn4CLDl0tk_0uNBoWHptMgTQy1VfX7jvQ)](https://youtu.be/yRTNg0NkKh8)
+
+#### [🕹 게임하러가기](https://jin0kim326.github.io/bug-game/)
 
 
 
