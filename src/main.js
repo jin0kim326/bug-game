@@ -5,7 +5,7 @@ import { GameBuilder, Reason } from "./game.js";
 
 const gameFinishBanner = new PopUp();
 const game = new GameBuilder()
-  .withGameDuration(20)
+  .withGameDuration(10)
   .withCarrotCount(10)
   .withBugCount(10)
   .build();

@@ -38,7 +38,6 @@ export function stopBackground() {
 function soundPlay(sound) {
   sound.currentTime = 0;
 
-  // Show loading animation.
   const playPromise = sound.play();
 
   if (playPromise !== undefined) {
