@@ -37,7 +37,20 @@ export function stopBackground() {
 
 function soundPlay(sound) {
   sound.currentTime = 0;
-  sound.play();
+
+  // Show loading animation.
+  const playPromise = video.play();
+
+  if (playPromise !== undefined) {
+    playPromise
+      .then((_) => {
+        sound.play();
+      })
+      .catch((error) => {
+        // Auto-play was prevented
+        // Show paused UI.
+      });
+  }
 }
 
 function soundStop(sound) {
