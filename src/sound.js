@@ -39,7 +39,7 @@ function soundPlay(sound) {
   sound.currentTime = 0;
 
   // Show loading animation.
-  const playPromise = video.play();
+  const playPromise = sound.play();
 
   if (playPromise !== undefined) {
     playPromise
